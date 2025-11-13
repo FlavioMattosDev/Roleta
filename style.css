@@ -352,10 +352,12 @@ select:focus {
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
+        align-items: center; 
     }
 
     .roulette-section,
     .options-section {
         flex: 1;
+        width: 95%;
     }
 }
