@@ -263,7 +263,7 @@ select:focus {
 
 #optionsList {
     list-style: none;
-    max-height: 40vh;
+    max-height: 14rem;
     overflow-y: auto;
     padding-right: 5px;
 }
