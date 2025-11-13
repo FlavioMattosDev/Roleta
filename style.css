@@ -44,7 +44,7 @@ body {
 /* ------------------------------- */
 .page-content-wrapper {
     /* Define a imagem de fundo aqui */
-    background-image: url('./bg.png'); 
+    background-image: url('./bg.jpg'); 
     background-size: cover; /* Faz a imagem cobrir todo o fundo */
     background-attachment: fixed; /* Mantém a imagem estática ao rolar a página */
     background-position: center center; /* Centraliza a imagem */
