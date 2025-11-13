@@ -1,6 +1,3 @@
-/* ------------------------------- */
-/* RESET BÁSICO E CONFIG GLOBAIS   */
-/* ------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -21,39 +18,30 @@
     --font-family: 'Poppins', sans-serif;
 }
 
-/* ------------------------------- */
-/* AJUSTES DO BODY (FLEXBOX PARA LAYOUT) */
-/* ------------------------------- */
 body {
     font-family: var(--font-family);
     color: var(--text-color);
     line-height: 1.6;
-    background-color: var(--bg-color); /* A cor de fundo principal para áreas que a imagem não cobrir */
+    background-color: var(--bg-color); 
     
-    /* **** AJUSTE PRINCIPAL AQUI: Body como um container flex para controlar o layout **** */
     display: flex;
-    flex-direction: column; /* Coloca header, wrapper e footer em coluna */
-    min-height: 100vh; /* Garante que o body use no mínimo a altura da tela */
+    flex-direction: column; 
+    min-height: 100vh; 
     margin: 0;
     padding: 0;
-    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
+    overflow-x: hidden; 
 }
 
-/* ------------------------------- */
-/* NOVO CONTAINER DE BACKGROUND    */
-/* ------------------------------- */
 .page-content-wrapper {
-    /* Define a imagem de fundo aqui */
     background-image: url('./bg.jpg'); 
-    background-size: cover; /* Faz a imagem cobrir todo o fundo */
-    background-attachment: fixed; /* Mantém a imagem estática ao rolar a página */
-    background-position: center center; /* Centraliza a imagem */
+    background-size: cover; 
+    background-attachment: fixed; 
+    background-position: center center; 
     background-repeat: no-repeat;
     
-    /* **** AJUSTE AQUI: Permite que o wrapper ocupe o espaço restante **** */
-    flex-grow: 1; /* Ocupa todo o espaço vertical disponível que não é do header/footer */
-    display: flex; /* Adiciona flex para centralizar o main */
-    flex-direction: column; /* Conteúdo interno em coluna */
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
 }
 
 h1, h2, h3 {
@@ -61,15 +49,12 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
-/* ------------------------------- */
-/* AJUSTES DE OPACIDADE E HEADER   */
-/* ------------------------------- */
 header {
     text-align: center;
     padding: 1rem;
-    background-color: rgba(30, 30, 37, 0.9); /* Transparência no Header para ver o BG */
+    background-color: rgba(30, 30, 37, 0.9); 
     border-bottom: 2px solid var(--primary-color);
-    flex-shrink: 0; /* Garante que o header não encolha */
+    flex-shrink: 0; 
 }
 
 footer {
@@ -78,8 +63,8 @@ footer {
     margin-top: 2rem;
     color: var(--text-muted);
     font-size: 0.9rem;
-    background-color: rgba(30, 30, 37, 0.8); /* Transparência no Footer */
-    flex-shrink: 0; /* Garante que o footer não encolha */
+    background-color: rgba(30, 30, 37, 0.8); 
+    flex-shrink: 0; 
 }
 
 button {
@@ -122,9 +107,6 @@ select:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-/* ------------------------------- */
-/* LAYOUT PRINCIPAL (FLEXBOX)      */
-/* ------------------------------- */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -132,9 +114,9 @@ select:focus {
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
-    flex-grow: 1; /* Permite que o container ocupe o espaço disponível dentro do wrapper */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: flex-start; /* Alinha o conteúdo ao topo do container */
+    flex-grow: 1; 
+    justify-content: center; 
+    align-items: flex-start; 
 }
 
 .roulette-section {
@@ -147,17 +129,14 @@ select:focus {
 
 .options-section {
     flex: 1;
-    background-color: rgba(30, 30, 37, 0.9); /* Transparência na seção de opções para ver o BG */
+    background-color: rgba(30, 30, 37, 0.9); 
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-width: 300px;
-    max-width: 450px; /* Limita a largura máxima para não esticar demais em telas grandes */
+    max-width: 450px; 
 }
 
-/* ------------------------------- */
-/* SEÇÃO DA ROLETA E TICKER        */
-/* ------------------------------- */
 .roulette-container {
     position: relative;
     width: 100%;
@@ -168,14 +147,14 @@ select:focus {
 
 .ticker {
     position: absolute;
-    top: 50%; /* Centraliza verticalmente */
-    right: -20px; /* Posiciona na direita, com leve deslocamento para fora */
-    transform: translateY(-50%) rotate(55deg); /* Centraliza e gira 90 graus para apontar para a roleta */
+    top: 50%; 
+    right: -20px; 
+    transform: translateY(-50%) rotate(55deg); 
     width: 0;
     height: 0;
     border-top: 20px solid transparent; 
     border-bottom: 20px solid transparent; 
-    border-left: 30px solid var(--danger-color); /* Triângulo vermelho apontando para a esquerda */
+    border-left: 30px solid var(--danger-color); 
     z-index: 10;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
 }
@@ -208,9 +187,6 @@ select:focus {
     transform: none;
 }
 
-/* ------------------------------- */
-/* SEÇÃO DE GERENCIAMENTO          */
-/* ------------------------------- */
 #optionsForm {
     display: flex;
     flex-direction: column;
@@ -284,9 +260,32 @@ select:focus {
     background-color: var(--danger-hover);
 }
 
-/* ------------------------------- */
-/* MODAL E RESPONSIVIDADE          */
-/* ------------------------------- */
+#optionsList {
+    list-style: none;
+    max-height: 40vh;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+#optionsList::-webkit-scrollbar {
+    width: 8px; 
+}
+
+#optionsList::-webkit-scrollbar-track {
+    background: #2a2a33; 
+    border-radius: 10px;
+}
+
+#optionsList::-webkit-scrollbar-thumb {
+    background-color: #555; 
+    border-radius: 10px; 
+    border: 2px solid #2a2a33; 
+}
+
+#optionsList::-webkit-scrollbar-thumb:hover {
+    background-color: #888; 
+}
+
 .hidden {
     display: none !important;
 }
@@ -297,7 +296,7 @@ select:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro */
+    background-color: rgba(0, 0, 0, 0.85); 
     display: flex;
     justify-content: center;
     align-items: center;
