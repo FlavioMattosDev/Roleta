@@ -1,3 +1,6 @@
+/* ------------------------------- */
+/* RESET BÁSICO E CONFIG GLOBAIS   */
+/* ------------------------------- */
 * {
     margin: 0;
     padding: 0;
@@ -18,14 +21,32 @@
     --font-family: 'Poppins', sans-serif;
 }
 
+/* ------------------------------- */
+/* AJUSTES DO BODY (SEM IMAGEM)    */
+/* ------------------------------- */
 body {
     font-family: var(--font-family);
     color: var(--text-color);
     line-height: 1.6;
-    background-color: var(--bg-color);
-    min-height: 100vh;
+    background-color: var(--bg-color); /* Mantém a cor de fundo primária ou de fallback */
+    min-height: 100vh; /* Garante que o body preencha a tela */
     margin: 0;
     padding: 0;
+}
+
+/* ------------------------------- */
+/* NOVO CONTAINER DE BACKGROUND    */
+/* ------------------------------- */
+.page-content-wrapper {
+    /* Define a imagem de fundo aqui, abaixo do header */
+    background-image: url('./bg.png'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* Garantia de que preencha a altura restante da tela */
+    min-height: calc(100vh - 84px); 
 }
 
 h1, h2, h3 {
@@ -33,10 +54,14 @@ h1, h2, h3 {
     margin-bottom: 1rem;
 }
 
+/* ------------------------------- */
+/* AJUSTES DE OPACIDADE E HEADER   */
+/* ------------------------------- */
 header {
     text-align: center;
     padding: 2rem;
-    background-color: var(--card-color);
+    /* Transparência no Header para ver o BG */
+    background-color: rgba(30, 30, 37, 0.9); 
     border-bottom: 2px solid var(--primary-color);
 }
 
@@ -46,6 +71,8 @@ footer {
     margin-top: 2rem;
     color: var(--text-muted);
     font-size: 0.9rem;
+    /* Transparência no Footer */
+    background-color: rgba(30, 30, 37, 0.8); 
 }
 
 button {
@@ -88,6 +115,9 @@ select:focus {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
+/* ------------------------------- */
+/* LAYOUT PRINCIPAL (FLEXBOX)      */
+/* ------------------------------- */
 .container {
     display: flex;
     flex-wrap: wrap;
@@ -107,13 +137,17 @@ select:focus {
 
 .options-section {
     flex: 1;
-    background-color: var(--card-color);
+    /* Transparência na seção de opções para ver o BG */
+    background-color: rgba(30, 30, 37, 0.9); 
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-width: 300px;
 }
 
+/* ------------------------------- */
+/* SEÇÃO DA ROLETA E TICKER        */
+/* ------------------------------- */
 .roulette-container {
     position: relative;
     width: 100%;
@@ -124,17 +158,16 @@ select:focus {
 
 .ticker {
     position: absolute;
-    top: 50%;
-    right: -20px;
-    transform: translateY(-50%) rotate(55deg); 
+    top: 50%; /* Centraliza verticalmente */
+    right: -20px; /* Posiciona na direita, com leve deslocamento para fora */
+    transform: translateY(-50%) rotate(90deg); /* Centraliza e gira 90 graus para apontar para a roleta */
     width: 0;
     height: 0;
-    border-top: 20px solid transparent;
-    border-bottom: 20px solid transparent;
-    border-left: 30px solid var(--danger-color);
+    border-top: 20px solid transparent; 
+    border-bottom: 20px solid transparent; 
+    border-left: 30px solid var(--danger-color); /* Triângulo vermelho apontando para a esquerda */
     z-index: 10;
     filter: drop-shadow(0 2px 3px rgba(0,0,0,0.5));
-
 }
 
 #wheelCanvas {
@@ -165,6 +198,9 @@ select:focus {
     transform: none;
 }
 
+/* ------------------------------- */
+/* SEÇÃO DE GERENCIAMENTO          */
+/* ------------------------------- */
 #optionsForm {
     display: flex;
     flex-direction: column;
@@ -238,6 +274,9 @@ select:focus {
     background-color: var(--danger-hover);
 }
 
+/* ------------------------------- */
+/* MODAL E RESPONSIVIDADE          */
+/* ------------------------------- */
 .hidden {
     display: none !important;
 }
@@ -248,7 +287,7 @@ select:focus {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro */
     display: flex;
     justify-content: center;
     align-items: center;
