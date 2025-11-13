@@ -22,31 +22,38 @@
 }
 
 /* ------------------------------- */
-/* AJUSTES DO BODY (SEM IMAGEM)    */
+/* AJUSTES DO BODY (FLEXBOX PARA LAYOUT) */
 /* ------------------------------- */
 body {
     font-family: var(--font-family);
     color: var(--text-color);
     line-height: 1.6;
-    background-color: var(--bg-color); /* Mantém a cor de fundo primária ou de fallback */
-    min-height: 100vh; /* Garante que o body preencha a tela */
+    background-color: var(--bg-color); /* A cor de fundo principal para áreas que a imagem não cobrir */
+    
+    /* **** AJUSTE PRINCIPAL AQUI: Body como um container flex para controlar o layout **** */
+    display: flex;
+    flex-direction: column; /* Coloca header, wrapper e footer em coluna */
+    min-height: 100vh; /* Garante que o body use no mínimo a altura da tela */
     margin: 0;
     padding: 0;
+    overflow-x: hidden; /* Evita barra de rolagem horizontal indesejada */
 }
 
 /* ------------------------------- */
 /* NOVO CONTAINER DE BACKGROUND    */
 /* ------------------------------- */
 .page-content-wrapper {
-    /* Define a imagem de fundo aqui, abaixo do header */
+    /* Define a imagem de fundo aqui */
     background-image: url('./bg.png'); 
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
+    background-size: cover; /* Faz a imagem cobrir todo o fundo */
+    background-attachment: fixed; /* Mantém a imagem estática ao rolar a página */
+    background-position: center center; /* Centraliza a imagem */
     background-repeat: no-repeat;
     
-    /* Garantia de que preencha a altura restante da tela */
-    min-height: calc(100vh - 84px); 
+    /* **** AJUSTE AQUI: Permite que o wrapper ocupe o espaço restante **** */
+    flex-grow: 1; /* Ocupa todo o espaço vertical disponível que não é do header/footer */
+    display: flex; /* Adiciona flex para centralizar o main */
+    flex-direction: column; /* Conteúdo interno em coluna */
 }
 
 h1, h2, h3 {
@@ -60,9 +67,9 @@ h1, h2, h3 {
 header {
     text-align: center;
     padding: 2rem;
-    /* Transparência no Header para ver o BG */
-    background-color: rgba(30, 30, 37, 0.9); 
+    background-color: rgba(30, 30, 37, 0.9); /* Transparência no Header para ver o BG */
     border-bottom: 2px solid var(--primary-color);
+    flex-shrink: 0; /* Garante que o header não encolha */
 }
 
 footer {
@@ -71,8 +78,8 @@ footer {
     margin-top: 2rem;
     color: var(--text-muted);
     font-size: 0.9rem;
-    /* Transparência no Footer */
-    background-color: rgba(30, 30, 37, 0.8); 
+    background-color: rgba(30, 30, 37, 0.8); /* Transparência no Footer */
+    flex-shrink: 0; /* Garante que o footer não encolha */
 }
 
 button {
@@ -125,6 +132,9 @@ select:focus {
     padding: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    flex-grow: 1; /* Permite que o container ocupe o espaço disponível dentro do wrapper */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    align-items: flex-start; /* Alinha o conteúdo ao topo do container */
 }
 
 .roulette-section {
@@ -137,12 +147,12 @@ select:focus {
 
 .options-section {
     flex: 1;
-    /* Transparência na seção de opções para ver o BG */
-    background-color: rgba(30, 30, 37, 0.9); 
+    background-color: rgba(30, 30, 37, 0.9); /* Transparência na seção de opções para ver o BG */
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     min-width: 300px;
+    max-width: 450px; /* Limita a largura máxima para não esticar demais em telas grandes */
 }
 
 /* ------------------------------- */
