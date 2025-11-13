@@ -170,7 +170,7 @@ select:focus {
     position: absolute;
     top: 50%; /* Centraliza verticalmente */
     right: -20px; /* Posiciona na direita, com leve deslocamento para fora */
-    transform: translateY(-50%) rotate(90deg); /* Centraliza e gira 90 graus para apontar para a roleta */
+    transform: translateY(-50%) rotate(55deg); /* Centraliza e gira 90 graus para apontar para a roleta */
     width: 0;
     height: 0;
     border-top: 20px solid transparent; 
