@@ -1,1 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subathon Sanry</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <header>
+        <h1>Subathon Sanry 🎲</h1>
+    </header>
+
+    <main class="container">
+        
+        <section class="roulette-section">
+            <div class="roulette-container">
+                <div class="ticker"></div>
+                <canvas id="wheelCanvas" width="500" height="500"></canvas>
+            </div>
+            <button id="spinButton">GIRAR!</button>
+        </section>
+
+        <section class="options-section">
+            <h2>Gerenciar Opções</h2>
+            
+            <form id="optionsForm">
+                <input type="hidden" id="editingIndex">
+                
+                <div class="form-group">
+                    <label for="optionName">Nome da Opção:</label>
+                    <input type="text" id="optionName" placeholder="Ex: Spirit sem som" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="optionRarity">Raridade:</label>
+                    <select id="optionRarity" required>
+                        <option value="Comum">Comum (Peso 50)</option>
+                        <option value="Raro">Raro (Peso 30)</option>
+                        <option value="Épico">Épico (Peso 15)</option>
+                        <option value="Lendário">Lendário (Peso 5)</option>
+                    </select>
+                </div>
+                
+                <button type="submit" id="formButton">Adicionar Opção</button>
+            </form>
+
+            <h3>Opções Atuais</h3>
+            <ul id="optionsList">
+                </ul>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+
+    <div id="modalOverlay" class="modal-overlay hidden">
+        <div id="resultModal" class="modal">
+            
+            <button id="closeModalBtn" class="modal-close">&times;</button>
+            
+            <h2>🎉 Resultado da Roleta! 🎉</h2>
+            <p>O prêmio é:</p>
+            <p id="modalResultText">Carregando...</p>
+            
+            <button id="removeWinnerBtn" class="btn-remove-winner">
+                Remover Opção Ganhadora
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
